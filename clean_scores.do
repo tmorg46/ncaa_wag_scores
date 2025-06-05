@@ -171,13 +171,15 @@ reshape long score, i(meettitle date host gymnast) j(event)
 drop if score==. // good stuff, now let's move along:
 
 *label the events (these export to string in csv format)
+gen event_title = event
 label define event_lbl 1 "Vault" 2 "Uneven Bars" 3 "Balance Beam" 4 "Floor Exercise"
-label values event event_lbl
+label values event_title event_lbl
 
 
 *and now we're done!
 compress
 sort team year meetnum event score
+order meettitle date host gymnast event event_title score team year meetnum
 export delimited using "${route}/cleaned_scores.csv", replace // and we're done!
 
 
