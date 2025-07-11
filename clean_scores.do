@@ -13,7 +13,7 @@ it is updated for scores through the 2025 season!
 clear all
 
 *edit this to be the path with all the team-year csv files
-global route "/Users/tmorg46/Desktop/ncaa_wag_scores"
+global route "C:/Users/toom/Desktop/ncaa_wag_scores"
 
 
 ********************************
@@ -55,6 +55,7 @@ replace gymnast = "Maddie Vitolo" if gymnast=="Maddie Viltolo" // and an extra-L
 replace gymnast = "Kaitlin DeGuzman" if gymnast=="Kaitlin Deguzman" // they didn't capitalize her name at Kentucky but did at Clemson
 replace gymnast = "Sophia LeBlanc" if gymnast=="Sophia Leblanc" // another caps issue here
 replace gymnast = subinstr(gymnast, "  ", " ", .) // there's a bunch of double space gaps for no reason
+replace gymnast = subinstr(gymnast, " ", " ", .) // the first one here is a weird non-white space character...
 
 *gymnasts with name changes across teams or over time:
 replace gymnast = "Sunny Hasebe" if gymnast=="Haruka Hasebe" // this is a Winona State gymnast with two names she's used for scores
