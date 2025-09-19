@@ -1,4 +1,4 @@
-# ncaa_wag_scores
+# NCAA Women's Gymnastics Scores, 2015 -- Present
 be sure to reach out to me if you need more details about anything here. chances are good that I'll be able to provide them!
 
 ==================================
