@@ -3,7 +3,7 @@ be sure to reach out to me if you need more details about anything here. chances
 
 but if you use this data + code, please cite it!
 
-Morgan, Tommy (2014). _Cleaned NCAA Women's Gymnastics Scores, 2015–Present_ \[Data set\]. https://github.com/tmorg46/ncaa_wag_scores
+Morgan, Tommy (2025). _Cleaned NCAA Women's Gymnastics Scores, 2015–Present_ \[Data set\]. https://github.com/tmorg46/ncaa_wag_scores
 
 ==================================
 
