@@ -1,7 +1,7 @@
 # Cleaned NCAA Women's Gymnastics Scores, 2015–Present
-be sure to reach out to me if you need more details about anything here. chances are good that I'll be able to provide them!
+be sure to reach out to me via my website (tommymorgan [dot] net) if you need more details about anything here. chances are good that I'll be able to provide them!
 
-but if you use this data + code, please cite it!
+but if you use this data or code, please cite it!
 
 Morgan, Tommy (2025). _Cleaned NCAA Women's Gymnastics Scores, 2015–Present_ \[Data set\]. https://github.com/tmorg46/ncaa_wag_scores
 
