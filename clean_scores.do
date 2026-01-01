@@ -54,8 +54,10 @@ replace gymnast = "Jessica Miley" if gymnast=="Jessisca Miley" // this is just a
 replace gymnast = "Maddie Vitolo" if gymnast=="Maddie Viltolo" // and an extra-L classic
 replace gymnast = "Kaitlin DeGuzman" if gymnast=="Kaitlin Deguzman" // they didn't capitalize her name at Kentucky but did at Clemson
 replace gymnast = "Sophia LeBlanc" if gymnast=="Sophia Leblanc" // another caps issue here
-replace gymnast = subinstr(gymnast, "  ", " ", .) // there's a bunch of double space gaps for no reason
+
 replace gymnast = subinstr(gymnast, " ", " ", .) // the first one here is a weird non-white space character...
+replace gymnast = subinstr(gymnast, "  ", " ", .) // there's a bunch of double space gaps for no reason
+
 
 *gymnasts with name changes across teams or over time:
 replace gymnast = "Sunny Hasebe" if gymnast=="Haruka Hasebe" // this is a Winona State gymnast with two names she's used for scores
