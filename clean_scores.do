@@ -13,7 +13,7 @@ it is updated for scores through the 2025 season!
 clear all
 
 *edit this to be the path with all the team-year csv files
-global route "C:/Users/toom/Desktop/ncaa_wag_scores"
+global route "/Users/tmorg46/Desktop/ncaa_wag_scores"
 
 
 ********************************
