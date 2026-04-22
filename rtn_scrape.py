@@ -12,9 +12,8 @@ import re
 #############
 # modify the three lines below and let 'er rip
 
-rtn_team_numbers = [*range(36, 57), *range(58, 67), *range(68, 83), 163, 156, 154, 128, 155, 164, 174] # these are all the team ids for 2025
-# rtn_team_numbers = [*range(1, 35), *range(36, 57), *range(58, 67), *range(68, 83), 163, 156, 154, 128, 155, 164, 174] # these are all the team ids for 2025
-years = [2025] # make this a list!
+rtn_team_numbers = [*range(1, 35), *range(36, 57), *range(58, 67), *range(68, 83), 163, 156, 154, 128, 155, 164, 174] # these are all the team ids for 2026
+years = [2026] # make this a list!
 
 #############
 
@@ -133,7 +132,7 @@ def main():
                 view_links_list = [link["href"] for link in view_links]
                 # del view_links_list[-1]
             
-            # del view_links_list[-1] # use this if the page has a weird scoreless meet, like the last meet on https://roadtonationals.com/results/teams/dashboard/2017/40
+            # del view_links_list[-5] # use this if the page has a weird scoreless meet, like the last meet on https://roadtonationals.com/results/teams/dashboard/2017/40 or the fifth to last meet on https://roadtonationals.com/results/teams/dashboard/2026/61
 
             # Replace with the actual URL of the page containing the buttons
             for link in view_links_list:
@@ -157,7 +156,7 @@ def main():
             print(df)
             df = df.drop(columns=["nothinghere", "allaround"])
 
-            scrape = f"C:/Users/toom/Desktop/uneven_bars/data/scrapes/{team}_{year}.csv"
+            scrape = f"C:/Users/toom/Desktop/ncaa_wag_scores/raw_scores/{team}_{year}.csv"
             df.to_csv(scrape, index=False, encoding="utf-8")
     print("mission accomplished!!")
 

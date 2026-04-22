@@ -6,14 +6,14 @@ this file cleans the RoadtoNationals.com scrapes
 it de-dupes the gymnasts and adjusts for any who
 	have changed their names over their careers.
 	
-it is updated for scores through the 2025 season!
+it is updated for scores through the 2026 season!
 
 */
 
 clear all
 
 *edit this to be the path with all the team-year csv files
-global route "/Users/tmorg46/Desktop/ncaa_wag_scores"
+global route "C:/Users/toom/Desktop/ncaa_wag_scores"
 
 
 ********************************
@@ -48,26 +48,57 @@ replace gymnast = "Carleigh Stillwagon" if gymnast=="" & team=="Western Michigan
 
 *fixing typos and misspellings:
 replace gymnast = "Desire' Stephens" if gymnast=="DesirÃ© Stephens" // obvious weird thing
+replace gymnast = "Zoë Zimmerman" if gymnast=="ZoÃ« Zimmerman" // another one
 replace gymnast = "Marie Priest" if gymnast=="Narah Priest" // this was a weird typo on one single meet, there is no Narah Priest as far as I can find
 replace gymnast = "Ava Kelley" if (gymnast=="Ava Kelly" | gymnast=="Ava Kelly") & team=="Springfield College" // they spelled her name wrong and there's another Ava Kelly at Southern Conn, plus in 2025 there's a weird escaped character in her name, hence the ( | )
 replace gymnast = "Jessica Miley" if gymnast=="Jessisca Miley" // this is just a raw extra-S typo
 replace gymnast = "Maddie Vitolo" if gymnast=="Maddie Viltolo" // and an extra-L classic
+replace gymnast = "Itzia San Roman" if gymnast=="Itzia San Ramon" // vowel swap!
 replace gymnast = "Kaitlin DeGuzman" if gymnast=="Kaitlin Deguzman" // they didn't capitalize her name at Kentucky but did at Clemson
+replace gymnast = "Kayla DiCello" if gymnast=="Kayla Dicello" // caps!
+replace gymnast = "Jane Heffernan" if gymnast=="Jane Hefferman" // an n to m swap!
+replace gymnast = "Julia Krzywanski" if gymnast=="Julia Kryzwanski" // z-y swap!
+replace gymnast = "Ariana DeSouza" if gymnast=="Ariana Desouza" // more caps!!
+replace gymnast = "Isabella DeCroo" if gymnast=="Isabella Decroo" // more caps!!
 replace gymnast = "Sophia LeBlanc" if gymnast=="Sophia Leblanc" // another caps issue here
+replace gymnast = "Alexis Frankowski" if gymnast=="Alexis Frakowski" // typo!
+replace gymnast = "Madysen Diskerud" if gymnast=="Madysen Disekrud" // typo!!
+replace gymnast = "Michaela DeFrancisco" if (gymnast=="Michaela DeFranscisco" | gymnast=="Michaela Defranscisco") // double typo!!
+replace gymnast = "Payton Greene" if gymnast=="Payton Green" // extra e!
+replace gymnast = "Robyn Dunne" if gymnast=="Robyn Dunn" // extra e!
+replace gymnast = "Sunny Hasebe" if gymnast=="Haruka Hasebe" // this is a Winona State gymnast with two names she's used for scores
 
 replace gymnast = subinstr(gymnast, " ", " ", .) // the first one here is a weird non-white space character...
 replace gymnast = subinstr(gymnast, "  ", " ", .) // there's a bunch of double space gaps for no reason
 
+replace gymnast = "Lundyn VanderToolen" if gymnast=="Lundyn Vander Toolen" // space issue, featuring weird white space
+replace gymnast = "Elizabeth LaRusso" if (gymnast=="Elizabeth Larusso" | gymnast=="Elizabeth Larusso" | gymnast=="Elizabeth Larusso") // more caps, with weird whitespace issues!
+replace gymnast = "Katrina Mendez-Abolnik" if (gymnast=="Katrina Mendez Abolnik" | gymnast=="Katrina Mendez Abolnik") // a dash here, none there, whitespace stuff
 
-*gymnasts with name changes across teams or over time:
-replace gymnast = "Sunny Hasebe" if gymnast=="Haruka Hasebe" // this is a Winona State gymnast with two names she's used for scores
+*gymnasts with name changes over time:
 replace gymnast = "Lindsey Hunter-Kempler" if team=="BYU" & (gymnast=="Linsey Hunter-Kempler" | gymnast=="Lindsey Hunter") // she got married and hyphenated her name
-replace gymnast = "Natasha Marsh" if team=="BYU" & gymnast=="Natasha Trejo" // she got married and changed her name
-replace gymnast = "Shannon Evans" if team=="BYU" & gymnast=="Shannon Hortman" // so did she
+replace gymnast = "Anna Bramblett-Wilde" if team=="BYU" & gymnast=="Anna Bramblett"	// so did she
+replace gymnast = "Brynlee Andersen-Broekman" if team=="BYU" & gymnast=="Brynlee Andersen"	// so did she
+replace gymnast = "Heidi Schooley-Meyers" if team=="BYU" & gymnast=="Heidi Schooley"	// so did she
+replace gymnast = "Mina Margraf-Benson" if team=="BYU" & gymnast=="Mina Margraf"	// so did she
+replace gymnast = "Josie Bergstrom-Te Slaa" if team=="Iowa State" & gymnast=="Josie Bergstrom"	// so did she
 
+replace gymnast = "Natasha Marsh" if team=="BYU" & gymnast=="Natasha Trejo" 	// she got married and changed her name
+replace gymnast = "Shannon Evans" if team=="BYU" & gymnast=="Shannon Hortman" 	// so did she
+replace gymnast = "Brittni Hawes" if team=="BYU" & gymnast=="Brittni Wilde"		// so did she
+
+replace gymnast = "Julie Rottum Madso" if team=="Pittsburgh" & gymnast=="Julie Madso" // sometimes uses her middle name
+replace gymnast = "Rocio Madalena Gora" if team=="Gustavus Adolphus" & gymnast=="Rocio Madalena" // second last name
+
+
+// gymnasts that share names:
 *there are two different Abbie Thompson:
 replace gymnast = "Abbie Thompson (Cornell)" if gymnast=="Abbie Thompson" & team=="Cornell"
 replace gymnast = "Abbie Thompson (Denver)" if gymnast=="Abbie Thompson" & team=="Denver"
+
+*there are two different Aspen Tucker:
+replace gymnast = "Aspen Tucker (George Washington)" if gymnast=="Aspen Tucker" & team=="George Washington"
+replace gymnast = "Aspen Tucker (Missouri)" if gymnast=="Aspen Tucker" & team=="Missouri"
 
 *there are two different Emily Anderson:
 replace gymnast = "Emily Anderson (Gustavus Adolphus)" if gymnast=="Emily Anderson" & team=="Gustavus Adolphus"
